@@ -1,65 +1,40 @@
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
-
-/* == GUI == */
-var props = {
-  columns: 8,
-  rows: 8,
-  size: 44,
-  spacing: 22,
-  backColor: "#FFFFFF",
-  puckColor: "#FFFFFF",
-}
-window.onload = function() {
-  var gui = new dat.GUI();
-
-  gui.add(props, 'rad').min(0).max(3.1415*2).step(0.1);
-
-  var style = gui.addFolder('Style');
-  style.addColor(props, 'backColor');
-  //style.open();
-};
-
-/* == Hauptteil == */
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  smooth();
-  frameRate(30);
+    background(255);
+  fill ('#005AE1');
   noStroke();
-}
+  rect(10,10,windowWidth-20,windowHeight-20);
+  }
 
 function draw() {
-  background(color(props.backColor));
+  let b = 100 * sin(millis() / 1000)
+  print(b);
+  let c = color(255,b)
+  let posx = 400;
+  let posy = 380;
 
-  // Grid Zentrum
-  var cell = props.size + props.spacing;
-  translate(width/2-(cell*props.columns)/2.0, height/2-(cell*props.rows)/2);
 
-  // draw
-  for (var col = 0; col < props.columns; col++) {
-    for (var row = 0; row < props.rows; row++) {
-      var x = col*cell + cell/2.0;
-      var y = row*cell + cell/2.0;
 
-      var tall = dist(width/2.0, height/2.0, x, y);
-      tall = sin(radians(tall-frameCount*6.0)) * 18.0 + 16.0;
 
-      drawLiftedCircle(x, y, props.size, tall);
-    }
+  //fill(c,10);
+  fill('#005AE100');
+  stroke(255)
+  strokeWeight(10);
+  for (i=0;i<2;i++){
+  push();
+  translate(width/2, height/2);
+  rotate(frameCount/40);
+  ellipse(0, 0, (posx),(posy));
+  pop();
   }
-}
 
-function drawLiftedCircle(x, y, radius, tall) {
-  //if (tall < 0) tall = 0;
 
-  x = x-tall;
-  y = y-tall;
 
-  for (var i = tall; i > 0; i--) {
-    fill(20+i*2.5, 40+i*4, 40+i*4, 255);
-    ellipse(x+i, y+i, radius-0.5, radius-0.5);
-  }
-  fill(255);
-  ellipse(x, y, radius, radius);
+  fill (0,90,225,10);
+  noStroke();
+  rect(10,10,windowWidth-20,windowHeight-20);
+  fill (0,90,225,100);
+  rect((width/2)-50,(height/2)-50, 100,100);
+
+
 }
