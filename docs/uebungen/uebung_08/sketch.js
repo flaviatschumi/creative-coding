@@ -14,7 +14,7 @@ function setup() {
 }
 
 function draw() {
-  strokeWeight(2);
+  strokeWeight(7);
   background(242, 161, 184);
 
   for (let i = 1; i <= anz; i++) {

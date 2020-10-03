@@ -29,7 +29,7 @@ function draw() {
   }
 
 
-
+  //Transparenz
   fill (0,90,225,10);
   noStroke();
   rect(10,10,windowWidth-20,windowHeight-20);
