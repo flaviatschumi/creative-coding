@@ -3,7 +3,7 @@
 var gui;
 
 var posy = 380;
-var posx = 150;
+var posx = 400;
 var winkel = 1;
 
 
@@ -24,7 +24,7 @@ function setup() {
 }
 
 function draw() {
-  let posx = 400;
+  // let posx = 20;
 
 
 
@@ -34,7 +34,7 @@ function draw() {
   fill('#005AE100');
   stroke(255)
   strokeWeight(10);
-  for (i = 0; i < 2; i++) {
+  for (i = 0; i < 2; i++){
     push();
     translate(width / 2, height / 2);
     rotate(frameCount / 40 + radians (winkel));
